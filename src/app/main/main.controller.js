@@ -15,7 +15,7 @@
     };
 
     vm.fnIsActive = function (viewLocation) {
-      return viewLocation === $location.path() ? 'active-module' : 'deactive-module';
+      return viewLocation === $location.path() ? 'md-accent' : 'md-primary';
     };
 
 
