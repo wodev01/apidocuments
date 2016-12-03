@@ -1,0 +1,42 @@
+<md-toolbar class="page-caption">
+  <div class="md-toolbar-tools">
+    <h2 class="md-flex">Locations API-List</h2>
+  </div>
+</md-toolbar>
+
+<div id="location-module" class="md-padding overflow-auto" ng-init="location.fnInitLocation()">
+
+  <!--<div class="margin-bottom-10 md-whiteframe-1dp"-->
+       <!--layout="row" layout-align="space-between center" >-->
+    <!--<div class="md-headline">-->
+      <!--<span class="margin-left-10">Locations API-List</span>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <div class="margin-bottom-10"
+       ng-class="$root.fnApplyStyle(api.method)" ng-repeat="api in location.locationApiData">
+
+    <div class="header" ng-click="location.toggleGroupLocation($index)">
+      <span><a class="method" href="#" >{{api.method}} </a></span>
+      <span class="margin-left-5">{{api.action}} </span>
+    </div>
+
+    <div class="body" ng-show="api.active">
+      <p>
+        <strong>URL : </strong>
+        <span class="urlStyle">{{api.url}}</span>
+      </p>
+
+      <div ng-if="api.response" class="margin-top-10 margin-bottom-10" layout="column">
+        <span class="margin-bottom-5">Example Response Data</span>
+        <textarea rows="15" ng-style="{'background-color':'#ffffdd'}">{{api.response}}</textarea>
+      </div>
+
+      <div ng-if="api.query" class="margin-top-10 margin-bottom-10" layout="column">
+        <span class="margin-bottom-5">SQL</span>
+        <textarea rows="7" ng-style="{'background-color':'#ffffdd'}">{{api.query}}</textarea>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,43 @@
+<md-toolbar class="top-header md-primary" ng-init="main.fnInitMain()">
+  <div class="md-toolbar-tools">
+    <md-button aria-label="Menu Bar" ng-click="main.fnToggleSideNav('left')"  class="md-icon-button">
+      <md-icon md-font-set="fa fa-lg fa-fw fa-bars"></md-icon>
+    </md-button>
+
+    <div layout="row" flex>
+      <span>Cargly API</span>
+    </div>
+
+  </div>
+</md-toolbar>
+
+<md-content layout="row" flex>
+  <!-- Left Side Navigation : START-->
+  <md-sidenav class="left-side-nav md-sidenav-left md-whiteframe-z2"
+              layout="column"
+              md-component-id="left"
+              md-is-locked-open="main.isLockLeft && $mdMedia('gt-md')"
+              id="leftSideNav">
+    <md-button ng-class="main.fnIsActive('/dashboard')"
+               ng-click="$root.fnCloseSideNavs();" ui-sref="main.dashboard">
+      <md-icon ng-class="main.fnIsActive('/dashboard')" md-font-set="fa fa-lg fa-fw fa-dashboard"></md-icon>&nbsp;Dashboard
+    </md-button>
+    <md-button ng-class="main.fnIsActive('/locations')"
+               ng-click="$root.fnCloseSideNavs();" ui-sref="main.locations">
+      <md-icon ng-class="main.fnIsActive('/locations')" md-font-set="fa fa-lg fa-fw fa-map-marker"></md-icon>&nbsp;Locations
+    </md-button>
+    <!--<md-button ng-class="main.fnIsActive('/payments')"-->
+               <!--ng-click="$root.fnCloseSideNavs();" ui-sref="main.payments">-->
+      <!--<md-icon ng-class="main.fnIsActive('/payments')" md-font-set="fa fa-lg fa-credit-card"></md-icon>&nbsp;Payments-->
+    <!--</md-button>-->
+    <!--<md-button ng-class="main.fnIsActive('/add/api')"-->
+               <!--ng-click="$root.fnCloseSideNavs();" ui-sref="main.addApi">-->
+      <!--<md-icon ng-class="main.fnIsActive('/add/api')" md-font-set="fa fa-lg fa-fw fa-book" class="md-primary"></md-icon>-->
+      <!--&nbsp;Add Api Call-->
+    <!--</md-button>-->
+  </md-sidenav>
+  <!-- Left Side Navigation : END-->
+
+  <!-- Body content -->
+  <md-content id="content" class="overflow-auto" layout="column" flex ui-view></md-content>
+</md-content>
