@@ -3,43 +3,5 @@
         <h2 class="md-flex">Clients API-List</h2>
     </div>
 </md-toolbar>
-
-<div id="clients-tab" class="md-padding overflow-auto"
-     ng-init="clients.fnInitClients();">
-    <div class="margin-bottom-10"
-         ng-class="$root.fnApplyStyle(api.method)" ng-repeat="api in clients.clientsApiData">
-
-        <div class="header" ng-click="clients.toggleGroup($index)">
-            <span><a class="method" href="javascript:void(0);">{{api.method}} </a></span>
-            <span class="margin-left-5"> {{api.action}} </span>
-        </div>
-
-        <div class="body" ng-show="api.active">
-            <p ng-if="api.url">
-                <strong>URL : </strong>
-                <span class="urlStyle">{{api.url}}</span>
-            </p>
-
-            <div class="margin-top-5" ng-if="api.responseHeader" layout="column">
-                <strong>Response Header [ x-paging-cursor ] : </strong>
-                <span class="urlStyle">{{api.responseHeader.xPagingCursor}}</span>
-            </div>
-
-            <div ng-if="api.reqData" class="margin-top-10 margin-bottom-10" layout="column">
-                <span class="margin-bottom-5">Request Body Data</span>
-                <pre class="ex-json">{{api.reqData | json}}</pre>
-            </div>
-
-            <div ng-if="api.response" class="margin-top-10 margin-bottom-10" layout="column">
-                <span class="margin-bottom-5">Example Response Data</span>
-                <pre class="ex-json">{{api.response | json}}</pre>
-            </div>
-
-            <div ng-if="api.query" class="margin-top-10 margin-bottom-10" layout="column">
-                <span class="margin-bottom-5">SQL</span>
-                <textarea rows="7" ng-style="{'background-color':'#ffffdd'}">{{api.query}}</textarea>
-            </div>
-        </div>
-    </div>
-</div>
+<cargly-api api-name="clients"></cargly-api>
 

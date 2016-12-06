@@ -15,35 +15,24 @@
                 controller: 'MainController',
                 controllerAs: 'main'
             })
+            .state('main.account', {
+                url: "account",
+                templateUrl: 'app/account/account.html'
+            }).state('main.clients', {
+                url: "clients",
+                templateUrl: 'app/clients/clients.html'
+            })
             .state('main.dashboard', {
                 url: "dashboard",
-                templateUrl: 'app/dashboard/dashboard.html',
-                controller: 'DashboardController',
-                controllerAs: 'dashboard'
+                templateUrl: 'app/dashboard/dashboard.html'
             })
             .state('main.locations', {
                 url: "locations",
-                templateUrl: 'app/location/location.html',
-                controller: 'LocationController',
-                controllerAs: 'location'
+                templateUrl: 'app/location/location.html'
             })
             .state('main.payments', {
                 url: "payments",
-                templateUrl: 'app/payment/payment.html',
-                controller: 'PaymentController',
-                controllerAs: 'payment'
-            })
-            .state('main.clients', {
-                url: "clients",
-                templateUrl: 'app/clients/clients.html',
-                controller: 'ClientsController',
-                controllerAs: 'clients'
-            })
-            .state('main.addApi', {
-                url: "add/api",
-                templateUrl: 'app/addapicallmodal/addapicallmodal.html',
-                controller: 'AddApiCallModalController',
-                controllerAs: 'addapi'
+                templateUrl: 'app/payment/payment.html'
             });
 
         $urlRouterProvider.otherwise('/dashboard');
