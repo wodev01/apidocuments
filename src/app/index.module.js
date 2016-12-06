@@ -1,7 +1,15 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular
-    .module('apiDocuments', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ngMaterial', 'toastr']);
+    angular
+        .module('apiDocuments', [
+            'ngAnimate',
+            'ngCookies',
+            'ngSanitize',
+            'ngMessages',
+            'ngAria',
+            'ui.router',
+            'ngMaterial',
+            'toastr']);
 
 })();

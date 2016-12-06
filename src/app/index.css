@@ -1481,6 +1481,11 @@ md-input-container {
   }
 }
 
+.ex-json{
+    background-color: #ffffdd;
+    overflow: auto;
+}
+
 @media (max-width: 768px) {
   .center-form-container {
     width: 300px;

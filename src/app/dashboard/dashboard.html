@@ -1,47 +1,40 @@
 <md-toolbar class="page-caption">
-  <div class="md-toolbar-tools">
-    <h2 class="md-flex">Dashboard API-List</h2>
-  </div>
+    <div class="md-toolbar-tools">
+        <h2 class="md-flex">Dashboard API-List</h2>
+    </div>
 </md-toolbar>
 
 <div id="dashboard-tab" class="md-padding overflow-auto" ng-init="dashboard.fnInitDashboard();">
 
-  <!--<div class="margin-bottom-10 md-whiteframe-1dp"-->
-       <!--layout="row" layout-align="space-between center" >-->
-    <!--<div class="md-headline">-->
-      <!--<span class="margin-left-10">Dashboard API-List</span>-->
-    <!--</div>-->
-  <!--</div>-->
+    <div class="margin-bottom-10"
+         ng-class="$root.fnApplyStyle(api.method)" ng-repeat="api in dashboard.dashboardApiData">
 
-  <div class="margin-bottom-10"
-       ng-class="$root.fnApplyStyle(api.method)" ng-repeat="api in dashboard.dashboardApiData">
+        <div class="header" ng-click="dashboard.toggleGroup($index)">
+            <span><a class="method" href="javascript:void(0);">{{api.method}} </a></span>
+            <span class="margin-left-5"> {{api.action}} </span>
+        </div>
 
-    <div class="header" ng-click="dashboard.toggleGroup($index)">
-      <span><a class="method" href="#" >{{api.method}} </a></span>
-      <span class="margin-left-5"> {{api.action}} </span>
+        <div class="body" ng-show="api.active">
+            <p ng-if="api.url">
+                <strong>URL : </strong>
+                <span class="urlStyle">{{api.url}}</span>
+            </p>
+
+            <div ng-if="api.reqData" class="margin-top-10 margin-bottom-10" layout="column">
+                <span class="margin-bottom-5">Request Body Data</span>
+                <pre class="ex-json">{{api.reqData | json}}</pre>
+            </div>
+
+            <div ng-if="api.response" class="margin-top-10 margin-bottom-10" layout="column">
+                <span class="margin-bottom-5">Example Response Data</span>
+                <pre class="ex-json">{{api.response | json}}</pre>
+            </div>
+
+            <div ng-if="api.query" class="margin-top-10 margin-bottom-10" layout="column">
+                <span class="margin-bottom-5">SQL</span>
+                <textarea rows="7" ng-style="{'background-color':'#ffffdd'}">{{api.query}}</textarea>
+            </div>
+        </div>
     </div>
-
-    <div class="body" ng-show="api.active">
-      <p ng-if="api.url">
-        <strong >URL : </strong>
-        <span class="urlStyle">{{api.url}}</span>
-      </p>
-
-      <div ng-if="api.reqData" class="margin-top-10 margin-bottom-10" layout="column">
-        <span class="margin-bottom-5">Request Body Data</span>
-        <textarea rows="7" ng-style="{'background-color':'#ffffdd'}">{{api.reqData}}</textarea>
-      </div>
-
-      <div ng-if="api.response" class="margin-top-10 margin-bottom-10" layout="column">
-        <span class="margin-bottom-5">Example Response Data</span>
-        <textarea rows="15" ng-style="{'background-color':'#ffffdd'}">{{api.response}}</textarea>
-      </div>
-
-      <div ng-if="api.query" class="margin-top-10 margin-bottom-10" layout="column">
-        <span class="margin-bottom-5">SQL</span>
-        <textarea rows="7" ng-style="{'background-color':'#ffffdd'}">{{api.query}}</textarea>
-      </div>
-    </div>
-  </div>
 
 </div>
