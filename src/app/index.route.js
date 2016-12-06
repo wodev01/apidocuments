@@ -33,6 +33,10 @@
             .state('main.payments', {
                 url: "payments",
                 templateUrl: 'app/payment/payment.html'
+            })
+            .state('main.users', {
+                url: "users",
+                templateUrl: 'app/users/users.html'
             });
 
         $urlRouterProvider.otherwise('/dashboard');

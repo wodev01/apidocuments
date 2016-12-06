@@ -43,6 +43,11 @@
             <md-icon ng-class="main.fnIsActive('/payments')" md-font-set="fa fa-lg fa-credit-card"></md-icon>
             &nbsp;Payments
         </md-button>
+        <md-button ng-class="main.fnIsActive('/users')"
+                   ng-click="$root.fnCloseSideNavs();" ui-sref="main.users">
+            <md-icon ng-class="main.fnIsActive('/users')" md-font-set="fa fa-lg fa-users"></md-icon>
+            &nbsp;Users
+        </md-button>
     </md-sidenav>
     <!-- Left Side Navigation : END-->
 

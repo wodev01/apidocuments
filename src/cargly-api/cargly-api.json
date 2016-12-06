@@ -1900,5 +1900,73 @@
             ],
             "query": ""
         }
+    ],
+    "users": [
+        {
+            "action": "Get Users",
+            "url": "https://carglyplatform.appspot.com/partners/api/users",
+            "method": "GET",
+            "response": [
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3Jtci4LEghQUGFydG5lchiAgICM1eXNCAwLEgxQUGFydG5lclVzZXIYgICAgICAgAoM",
+                    "name": "Stephen Perez",
+                    "email": "stephen+rlo@cargly.com",
+                    "role": "Super",
+                    "customerContact": "true",
+                    "verified": "true",
+                    "owner": "false",
+                    "defaultLocation": "ahBzfmNhcmdseXBsYXRmb3JtcjILEghQUGFydG5lchiAgICM1eXNCAwLEhBQUGFydG5lckxvY2F0aW9uGICAgICA5JEKDA"
+                },
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3Jtci4LEghQUGFydG5lchiAgICM1eXNCAwLEgxQUGFydG5lclVzZXIYgICAgJDHgAoM",
+                    "name": "John Wafler",
+                    "email": "jwafler@rlotraining.com",
+                    "role": "Super",
+                    "customerContact": "false",
+                    "verified": "true",
+                    "owner": "false",
+                    "defaultLocation": "ahBzfmNhcmdseXBsYXRmb3JtcjILEghQUGFydG5lchiAgICM1eXNCAwLEhBQUGFydG5lckxvY2F0aW9uGICAgICA5JEKDA"
+                }
+            ],
+            "query": ""
+        },
+        {
+            "action": "Create User",
+            "url": "https://carglyplatform.appspot.com/partners/api/users",
+            "method": "POST",
+            "reqData": {
+                "name": "Testing",
+                "email": "wo.dev02+testing@gmail.com",
+                "role": "User",
+                "defaultLocation": "ahBzfmNhcmdseXBsYXRmb3JtcjILEghQUGFydG5lchiAgICM1eXNCAwLEhBQUGFydG5lckxvY2F0aW9uGICAgICA5JEKDA",
+                "customerContact": "false",
+                "verified": ""
+            },
+            "response": null,
+            "query": ""
+        },
+        {
+            "action": "Update User",
+            "url": "https://carglyplatform.appspot.com/partners/api/users/:id",
+            "method": "POST",
+            "reqData": {
+                "timezone": "US/Central",
+                "name": "Test-Location",
+                "phone": "9898654123",
+                "address": "ACME-Address",
+                "city": "ACME-City",
+                "state": "ACME-State",
+                "zip": "29210"
+            },
+            "response": null,
+            "query": ""
+        },
+        {
+            "action": "Delete User",
+            "url": "https://carglyplatform.appspot.com/partners/api/users/:id",
+            "method": "DELETE",
+            "response": null,
+            "query": ""
+        }
     ]
 }
