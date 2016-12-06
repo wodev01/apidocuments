@@ -7,10 +7,7 @@
 
   /** @ngInject */
   function DashboardController($log, $http) {
-
     var vm = this;
-    vm.isOpened = true;
-
     vm.fnLoadApiData = function(){
       $http.get('api.json').success(function(data){
           vm.dashboardApiData = data.dashboard;
@@ -20,7 +17,6 @@
             }
             obj.response = JSON.stringify(obj.response, undefined, 4);
             obj.reqData= JSON.stringify(obj.reqData, undefined, 4);
-
           });
         vm.dashboardApiData = data.dashboard;
       });

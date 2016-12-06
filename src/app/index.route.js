@@ -27,11 +27,17 @@
         controller: 'LocationController',
         controllerAs: 'location'
       })
-      .state('main.payments', {
+      /*.state('main.payments', {
         url: "payments",
         templateUrl: 'app/payment/payment.html',
         controller: 'PaymentController',
         controllerAs: 'payment'
+      })*/
+      .state('main.clients', {
+        url: "clients",
+        templateUrl: 'app/clients/clients.html',
+        controller: 'ClientsController',
+        controllerAs: 'clients'
       })
       .state('main.addApi', {
         url: "add/api",

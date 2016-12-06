@@ -1,4 +1,4 @@
-<md-toolbar class="top-header md-primary" ng-init="main.fnInitMain()">
+<md-toolbar class=" md-primary" ng-init="main.fnInitMain()">
   <div class="md-toolbar-tools">
     <md-button aria-label="Menu Bar" ng-click="main.fnToggleSideNav('left')"  class="md-icon-button">
       <md-icon md-font-set="fa fa-lg fa-fw fa-bars"></md-icon>
@@ -16,7 +16,7 @@
   <md-sidenav class="left-side-nav md-sidenav-left md-whiteframe-z2"
               layout="column"
               md-component-id="left"
-              md-is-locked-open="main.isLockLeft && $mdMedia('gt-md')"
+              md-is-locked-open="main.isLockLeft && $mdMedia('gt-sm')"
               id="leftSideNav">
     <md-button ng-class="main.fnIsActive('/dashboard')"
                ng-click="$root.fnCloseSideNavs();" ui-sref="main.dashboard">
@@ -25,6 +25,10 @@
     <md-button ng-class="main.fnIsActive('/locations')"
                ng-click="$root.fnCloseSideNavs();" ui-sref="main.locations">
       <md-icon md-font-set="fa fa-lg fa-fw fa-map-marker"></md-icon>&nbsp;Locations
+    </md-button>
+    <md-button ng-class="main.fnIsActive('/clients')"
+               ng-click="$root.fnCloseSideNavs();" ui-sref="main.clients">
+      <md-icon md-font-set="fa fa-lg fa-fw fa-users"></md-icon>&nbsp;Clients
     </md-button>
     <!--<md-button ng-class="main.fnIsActive('/payments')"-->
                <!--ng-click="$root.fnCloseSideNavs();" ui-sref="main.payments">-->
