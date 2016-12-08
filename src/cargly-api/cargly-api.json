@@ -3,7 +3,7 @@
         "account": {
             "title": "Account",
             "name": "account",
-            "icon": "fa fa-lg fa-plus",
+            "icon": "fa fa-lg fa-bank",
             "urlPath": "/account",
             "sref": "main.account"
         },
@@ -233,7 +233,7 @@
         },
         {
             "action": "Get Client User's Billing History",
-            "url": "https://carglyplatform.appspot.com/partners/api/partnerId/payments?",
+            "url": "https://carglyplatform.appspot.com/partners/api/:partnerId/payments?",
             "method": "GET",
             "response": [
                 {
@@ -249,7 +249,7 @@
         },
         {
             "action": "Clients Act-On",
-            "url": "https://carglyplatform.appspot.com/partners/api/crm/acton/partnerId/info?",
+            "url": "https://carglyplatform.appspot.com/partners/api/crm/acton/:partnerId/info?",
             "method": "GET",
             "response": {
                 "enabled": true,
@@ -257,32 +257,172 @@
             }
         },
         {
+            "action": "Clients Update-Definitions",
+            "url": "https://carglyplatform.appspot.com/partners/api/update-definitions?",
+            "method": "GET",
+            "response": [
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3JtckILEghQUGFydG5lchiAgICQ7fSQCQwLEiBQUGFydG5lclNvZnR3YXJlVXBkYXRlRGVmaW5pdGlvbhiAgICAuOWACgw",
+                    "created": "2016-08-17T23:05:53.629Z",
+                    "type": "shopsync",
+                    "url": "https://dl.dropboxusercontent.com/s/keqjsfrqz37elx6/rsmt_1.1.1.zip",
+                    "signature": "bdc617bf5306ebfa76ea8acdecef67cb04da0aa165c997e0f4be4cdeec8384e7",
+                    "version": "1.1.1",
+                    "package_type": "ARCHIVE",
+                    "applies_to_location": true
+                },
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3JtckILEghQUGFydG5lchiAgICQ7fSQCQwLEiBQUGFydG5lclNvZnR3YXJlVXBkYXRlRGVmaW5pdGlvbhiAgICAyK6PCgw",
+                    "created": "2015-10-31T03:47:09.789Z",
+                    "type": "shopsync",
+                    "url": "https://dl.dropboxusercontent.com/s/21kpi3j6wwubopz/rsmt_1.0.16.zip",
+                    "signature": "e5ced1d854130738f5d9b5f80d9e8bc3dc111b4cd14934747f420caa02d68f97",
+                    "version": "1.0.16",
+                    "package_type": "ARCHIVE",
+                    "applies_to_location": true
+                }
+            ]
+        },
+        {
+            "action": "Clients Update-Statuses",
+            "url": "https://carglyplatform.appspot.com/partners/api/:partnerId/update-statuses?page_num=1&page_size=5",
+            "method": "GET",
+            "response": [
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3JtcikLEhxQUGFydG5lclNvZnR3YXJlVXBkYXRlU3RhdHVzGICAwPHJ89ILDA",
+                    "created": "2016-08-17T23:11:41.642Z",
+                    "location_id": "ahBzfmNhcmdseXBsYXRmb3JtcjILEghQUGFydG5lchiAgICQmP2fCwwLEhBQUGFydG5lckxvY2F0aW9uGICAgICA8ogKDA",
+                    "update_type": "shopsync",
+                    "update_url": "https://dl.dropboxusercontent.com/s/keqjsfrqz37elx6/rsmt_1.1.1.zip",
+                    "update_version": "1.1.1",
+                    "status": "SUCCEEDED"
+                },
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3JtcikLEhxQUGFydG5lclNvZnR3YXJlVXBkYXRlU3RhdHVzGICAwIng4MELDA",
+                    "created": "2016-08-17T23:10:49.863Z",
+                    "location_id": "ahBzfmNhcmdseXBsYXRmb3JtcjILEghQUGFydG5lchiAgICQmP2fCwwLEhBQUGFydG5lckxvY2F0aW9uGICAgICA5JEKDA",
+                    "update_type": "shopsync",
+                    "update_url": "https://dl.dropboxusercontent.com/s/keqjsfrqz37elx6/rsmt_1.1.1.zip",
+                    "update_version": "1.1.1",
+                    "status": "SUCCEEDED"
+                }
+            ]
+        },
+        {
             "action": "Clients Updates",
-            "url": "https://carglyplatform.appspot.com/partners/api/partnerId/updates?page_num=1&page_size=5",
-            "method":"GET",
+            "url": "https://carglyplatform.appspot.com/partners/api/:partnerId/updates?page_num=1&page_size=5",
+            "method": "GET",
             "response": {
-                "updates" : [ {
-                    "id" : "ahBzfmNhcmdseXBsYXRmb3JtciMLEhZQUGFydG5lclNvZnR3YXJlVXBkYXRlGICAwNHP3_0IDA",
-                    "created" : "2016-08-17T23:06:21.842Z",
-                    "update_definition_id" : "ahBzfmNhcmdseXBsYXRmb3JtckILEghQUGFydG5lchiAgICQ7fSQCQwLEiBQUGFydG5lclNvZnR3YXJlVXBkYXRlRGVmaW5pdGlvbhiAgICAuOWACgw",
-                    "partner_id" : "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgICQmP2fCww",
-                    "update_type" : "shopsync",
-                    "update_url" : "https://dl.dropboxusercontent.com/s/keqjsfrqz37elx6/rsmt_1.1.1.zip",
-                    "signature" : "bdc617bf5306ebfa76ea8acdecef67cb04da0aa165c997e0f4be4cdeec8384e7",
-                    "version" : "1.1.1",
-                    "type" : "ARCHIVE"
-                }, {
-                    "id" : "ahBzfmNhcmdseXBsYXRmb3JtciMLEhZQUGFydG5lclNvZnR3YXJlVXBkYXRlGICAgP-alYYJDA",
-                    "created" : "2016-04-07T04:54:33.524Z",
-                    "update_definition_id" : "ahBzfmNhcmdseXBsYXRmb3JtckILEghQUGFydG5lchiAgICM1eXNCAwLEiBQUGFydG5lclNvZnR3YXJlVXBkYXRlRGVmaW5pdGlvbhiAgICAxOiBCgw",
-                    "partner_id" : "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgICQmP2fCww",
-                    "update_type" : "shopsync",
-                    "update_url" : "https://dl.dropboxusercontent.com/s/1jc5pdwu7m2q1mk/rsmt_1.0.18f.zip",
-                    "signature" : "471d056bed4fdcc58d492b51153ac24d8f39f214691cf9e4e6eaa33fb4bb47b5",
-                    "version" : "1.0.18f",
-                    "type" : "ARCHIVE"
-                } ]
+                "updates": [
+                    {
+                        "id": "ahBzfmNhcmdseXBsYXRmb3JtciMLEhZQUGFydG5lclNvZnR3YXJlVXBkYXRlGICAwNHP3_0IDA",
+                        "created": "2016-08-17T23:06:21.842Z",
+                        "update_definition_id": "ahBzfmNhcmdseXBsYXRmb3JtckILEghQUGFydG5lchiAgICQ7fSQCQwLEiBQUGFydG5lclNvZnR3YXJlVXBkYXRlRGVmaW5pdGlvbhiAgICAuOWACgw",
+                        "partner_id": "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgICQmP2fCww",
+                        "update_type": "shopsync",
+                        "update_url": "https://dl.dropboxusercontent.com/s/keqjsfrqz37elx6/rsmt_1.1.1.zip",
+                        "signature": "bdc617bf5306ebfa76ea8acdecef67cb04da0aa165c997e0f4be4cdeec8384e7",
+                        "version": "1.1.1",
+                        "type": "ARCHIVE"
+                    },
+                    {
+                        "id": "ahBzfmNhcmdseXBsYXRmb3JtciMLEhZQUGFydG5lclNvZnR3YXJlVXBkYXRlGICAgP-alYYJDA",
+                        "created": "2016-04-07T04:54:33.524Z",
+                        "update_definition_id": "ahBzfmNhcmdseXBsYXRmb3JtckILEghQUGFydG5lchiAgICM1eXNCAwLEiBQUGFydG5lclNvZnR3YXJlVXBkYXRlRGVmaW5pdGlvbhiAgICAxOiBCgw",
+                        "partner_id": "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgICQmP2fCww",
+                        "update_type": "shopsync",
+                        "update_url": "https://dl.dropboxusercontent.com/s/1jc5pdwu7m2q1mk/rsmt_1.0.18f.zip",
+                        "signature": "471d056bed4fdcc58d492b51153ac24d8f39f214691cf9e4e6eaa33fb4bb47b5",
+                        "version": "1.0.18f",
+                        "type": "ARCHIVE"
+                    }
+                ]
             }
+        },
+        {
+            "action": "Get Client Forms",
+            "url": "https://carglyplatform.appspot.com/partners/api/crm/:partnerId/activities?activityType=WEB_FORM",
+            "method": "GET",
+            "response": [
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3JtciQLEhdQUGFydG5lclNlc3Npb25BY3Rpdml0eRiAgMC_tuGFCgw",
+                    "session_id": "nJCI0e66yGKv8TppswpD4wCmQr63TocFAyJG8i-0UR4",
+                    "occurred": "2016-10-25T18:33:06.385Z",
+                    "location_id": "ahBzfmNhcmdseXBsYXRmb3JtcjILEghQUGFydG5lchiAgICQmP2fCwwLEhBQUGFydG5lckxvY2F0aW9uGICAgICA5JEKDA",
+                    "activity_type": "WEB_FORM",
+                    "source": "http://certifiedautorepair.us/recent-repair/?eid=6eSGSoa-Ukz7mIFEdjhz1p7UPNfV4dYEf71eD5as0Fc&star=5",
+                    "form_name": "",
+                    "form_data": {
+                        "Rating": "5",
+                        "First Name": "",
+                        "Last name": "",
+                        "E-mail": "",
+                        "Who was your Service Advisor?": "",
+                        "Phone": "",
+                        "What was excellent about your experience?": [
+                            "Excellent customer service",
+                            "Great prices",
+                            "Knowledgable staff",
+                            "Communication"
+                        ],
+                        "Why did you choose us?": [
+                            "I've been a customer for years",
+                            "Convenience"
+                        ],
+                        "How can this be improved?": []
+                    },
+                    "session": {
+                        "session_id": "nJCI0e66yGKv8TppswpD4wCmQr63TocFAyJG8i-0UR4",
+                        "session_type": "WEB_SESSION",
+                        "created": "2016-10-19T12:38:37.175Z",
+                        "modified": "2016-10-25T18:33:07.465Z",
+                        "location_id": "ahBzfmNhcmdseXBsYXRmb3JtcjILEghQUGFydG5lchiAgICQmP2fCwwLEhBQUGFydG5lckxvY2F0aW9uGICAgICA5JEKDA",
+                        "customer": {
+                            "id": 2367,
+                            "type": "INDIVIDUAL",
+                            "reference": "00009001694",
+                            "first_name": "",
+                            "last_name": "",
+                            "company": "",
+                            "address1": "1365 LANGEWOOD DR",
+                            "city": "MINIRISTA",
+                            "state": "MN",
+                            "postal_code": "55364-    ",
+                            "phone_numbers": [
+                                "9785471",
+                                "6129785471"
+                            ],
+                            "email_addresses": [
+                                ""
+                            ],
+                            "first_seen": "2012-03-13T18:16:50.000Z",
+                            "last_seen": "2016-10-24T05:00:00.000Z",
+                            "sms_crm_active": true,
+                            "email_unsubscribed": false
+                        },
+                        "vehicle": {
+                            "id": "2821",
+                            "make": "MERB",
+                            "model": "SL500",
+                            "year": "1998",
+                            "vin": "WDBFA67F5WF165602",
+                            "license": "375KYV",
+                            "first_odo": 0,
+                            "last_odo": 83183
+                        },
+                        "repair_order_id": 1547436,
+                        "interaction_id": 32327,
+                        "ip_address": "173.18.184.135",
+                        "latitude": "45.020891",
+                        "longitude": "-93.509457",
+                        "country": "US",
+                        "region": "mn",
+                        "city": "hennepin county",
+                        "interaction_source_name": "Customer Visits \\ Default Thank you",
+                        "form_submitted": false
+                    }
+                }
+            ]
         }
     ],
     "dashboard": [
@@ -2365,6 +2505,11 @@
                 }
             ],
             "query": ""
+        },
+        {
+            "action": "Get Dashboard API Calls",
+            "method": "GET",
+            "forwardState": "main.dashboard"
         }
     ],
     "campaigns": [

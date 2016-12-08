@@ -4,7 +4,7 @@
         .module('apiDocuments')
         .controller('CarglyApiController', CarglyApiController);
 
-    function CarglyApiController($scope) {
+    function CarglyApiController($scope, $state) {
 
         var vm = this;
 
@@ -26,8 +26,12 @@
         };
 
         vm.fnToggleGroup = function (index) {
-            vm.apiData[index].active = !vm.apiData[index].active;
-            collapseAnother(index);
+            if(vm.apiData[index].forwardState){
+                $state.go(vm.apiData[index].forwardState);
+            }else {
+                vm.apiData[index].active = !vm.apiData[index].active;
+                collapseAnother(index);
+            }
         };
 
         vm.fnInitCarglyAPI = function () {

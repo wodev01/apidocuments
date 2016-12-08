@@ -11,35 +11,38 @@
         </div>
 
         <div class="body" ng-show="api.active">
-            <p ng-if="api.url">
+            <div class="margin-top-5" ng-if="api.url">
                 <strong>URL : </strong>
                 <span class="urlStyle">{{api.url}}</span>
-            </p>
+            </div>
 
             <div class="margin-top-5" ng-if="api.responseHeader" layout="column">
                 <strong>Response Header [ x-paging-cursor ] : </strong>
                 <span class="urlStyle">{{api.responseHeader.xPagingCursor}}</span>
             </div>
 
-            <div ng-if="api.reqData" class="margin-top-10 margin-bottom-10" layout="column">
-                <div class="margin-bottom-5">
+            <div ng-if="api.reqData" class="margin-top-10" layout="column">
+                <div>
                     <span class="example-label">Example </span>
                     <span class="padding-left-5">Request Body Data</span>
                 </div>
                 <pre class="ex-json">{{api.reqData | json}}</pre>
             </div>
 
-            <div ng-if="api.response" class="margin-top-10 margin-bottom-10" layout="column">
-                <div class="margin-bottom-5">
+            <div ng-if="api.response" class="margin-top-10" layout="column">
+                <div>
                     <span class="example-label">Example </span>
                     <span class="padding-left-5">Response data</span>
                 </div>
                 <pre class="ex-json">{{api.response | json}}</pre>
             </div>
 
-            <div ng-if="api.query" class="margin-top-10 margin-bottom-10" layout="column">
-                <span class="margin-bottom-5">SQL</span>
-                <textarea rows="7" ng-style="{'background-color':'#ffffdd'}">{{api.query}}</textarea>
+            <div ng-if="api.query" layout="column">
+                <div>
+                    <span class="example-label">Example </span>
+                    <span class="padding-left-5">SQL</span>
+                </div>
+                <pre class="ex-json" ng-style="{'white-space':'normal','padding':'5px'}">{{api.query}}</pre>
             </div>
         </div>
     </div>
