@@ -17,26 +17,66 @@
             })
             .state('main.account', {
                 url: "account",
-                templateUrl: 'app/account/account.html'
-            }).state('main.clients', {
+                templateUrl: 'app/template/template.html',
+                controller: 'TemplateController',
+                controllerAs: 'template',
+                data: {"api-name": "account"}
+            })
+            .state('main.clients', {
                 url: "clients",
-                templateUrl: 'app/clients/clients.html'
+                templateUrl: 'app/template/template.html',
+                controller: 'TemplateController',
+                controllerAs: 'template',
+                data: {"api-name": "clients"}
             })
             .state('main.dashboard', {
                 url: "dashboard",
-                templateUrl: 'app/dashboard/dashboard.html'
+                templateUrl: 'app/template/template.html',
+                controller: 'TemplateController',
+                controllerAs: 'template',
+                data: {"api-name": "dashboard"}
+            })
+            .state('main.groups', {
+                url: "groups",
+                templateUrl: 'app/template/template.html',
+                controller: 'TemplateController',
+                controllerAs: 'template',
+                data: {"api-name": "groups"}
             })
             .state('main.locations', {
                 url: "locations",
-                templateUrl: 'app/location/location.html'
+                templateUrl: 'app/template/template.html',
+                controller: 'TemplateController',
+                controllerAs: 'template',
+                data: {"api-name": "location"}
+            })
+            .state('main.shop-locations', {
+                url: "shop-locations",
+                templateUrl: 'app/template/template.html',
+                controller: 'TemplateController',
+                controllerAs: 'template',
+                data: {"api-name": "shop-location"}
             })
             .state('main.payments', {
                 url: "payments",
-                templateUrl: 'app/payment/payment.html'
+                templateUrl: 'app/template/template.html',
+                controller: 'TemplateController',
+                controllerAs: 'template',
+                data: {"api-name": "payment"}
             })
             .state('main.users', {
                 url: "users",
-                templateUrl: 'app/users/users.html'
+                templateUrl: 'app/template/template.html',
+                controller: 'TemplateController',
+                controllerAs: 'template',
+                data: {"api-name": "users"}
+            })
+            .state('main.campaigns', {
+                url: "campaigns",
+                templateUrl: 'app/template/template.html',
+                controller: 'TemplateController',
+                controllerAs: 'template',
+                data: {"api-name": "campaigns"}
             });
 
         $urlRouterProvider.otherwise('/dashboard');

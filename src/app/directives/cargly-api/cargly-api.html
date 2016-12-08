@@ -1,4 +1,7 @@
 <div class="md-padding overflow-auto" ng-init="ca.fnInitCarglyAPI();">
+
+    <div ng-if="!ca.apiData || ca.apiData.length == 0" layout="row" layout-align="center center" class="md-headline">No API To Display</div>
+
     <div class="margin-bottom-10"
          ng-class="$root.fnApplyStyle(api.method)" ng-repeat="api in ca.apiData">
 
@@ -34,4 +37,5 @@
             </div>
         </div>
     </div>
+
 </div>

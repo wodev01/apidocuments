@@ -11,7 +11,10 @@
         vm.isLockLeft = true;
 
         vm.fnInitMain = function () {
-
+            vm.sidenavData = [];
+            angular.forEach(cargly.api['config'], function (obj) {
+                vm.sidenavData.push(obj);
+            });
         };
 
         vm.fnIsActive = function (viewLocation) {

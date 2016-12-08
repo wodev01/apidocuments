@@ -1,4 +1,61 @@
 {
+    "config": {
+        "account": {
+            "title": "Account",
+            "name": "account",
+            "icon": "fa fa-lg fa-plus",
+            "urlPath": "/account",
+            "sref": "main.account"
+        },
+        "clients": {
+            "name": "clients",
+            "icon": "fa fa-lg fa-users",
+            "urlPath": "/clients",
+            "sref": "main.clients"
+        },
+        "dashboard": {
+            "name": "dashboard",
+            "icon": "fa fa-lg fa-dashboard",
+            "urlPath": "/dashboard",
+            "sref": "main.dashboard"
+        },
+        "groups": {
+            "name": "groups",
+            "icon": "fa fa-lg fa-life-ring",
+            "urlPath": "/groups",
+            "sref": "main.groups"
+        },
+        "location": {
+            "name": "location",
+            "icon": "fa fa-lg fa-map-marker",
+            "urlPath": "/locations",
+            "sref": "main.locations"
+        },
+        "payment": {
+            "name": "payments",
+            "icon": "fa fa-lg fa-credit-card",
+            "urlPath": "/payments",
+            "sref": "main.payments"
+        },
+        "users": {
+            "name": "users",
+            "icon": "fa fa-lg fa-users",
+            "urlPath": "/users",
+            "sref": "main.users"
+        },
+        "shop-location": {
+            "name": "shop-locations",
+            "icon": "fa fa-lg fa-map-marker",
+            "urlPath": "/shop-locations",
+            "sref": "main.shop-locations"
+        },
+        "campaigns": {
+            "name": "campaigns",
+            "icon": "fa fa-lg fa-file-text-o",
+            "urlPath": "/campaigns",
+            "sref": "main.campaigns"
+        }
+    },
     "account": [
         {
             "action": "Create User's Account",
@@ -155,6 +212,24 @@
                 "subscription_status": "ActiveVerifySubscriptions",
                 "balance_cents": 0
             }
+        },
+        {
+            "action": "Create New Client",
+            "url": "https://carglyplatform.appspot.com/partners/api/agent/clients",
+            "method": "POST",
+            "reqData": {
+                "timezone": "US/Central",
+                "name": "ACME-Location",
+                "website": "http://acme.com",
+                "contact_name": "Vipul Jain Test",
+                "contact_phone": "12345",
+                "contact_email": "123@123.as",
+                "address": "Test-Address",
+                "city": "ACME-City",
+                "state": "Test-State",
+                "zip": "12345"
+            },
+            "response": null
         }
     ],
     "dashboard": [
@@ -1796,6 +1871,191 @@
             "query": "select * from (select v.id as vid,c.id as cid, count(ro.id) as v_ro_ct,sum(ro.total_cents) as v_total_spent, ro.marketing_source as marketing_source, lastSpent.total_cents as v_last_spent , avg(ro.total_cents) as v_avg_spent, sum(ro.labor_total_cents) as v_total_labor_spent,sum(ro.parts_total_cents) as v_total_parts_spent, csum.total_customer_visits as c_ro_ct,csum.total_customer_spent as c_total_spent,csum.avg_customer_spent as c_avg_spent,csum.vehicle_count as c_veh_ct from repair_orders ro left join vehicles v on v.id=ro.vehicle_id left join customers c on c.id=ro.customer_id left join (select customer_id,count(customer_id) as total_customer_visits,sum(total_cents) as total_customer_spent, avg(total_cents) as avg_customer_spent,count(distinct vehicle_id) as vehicle_count from repair_orders where partner_id=:partnerId and location_id=:locationId group by customer_id) csum on csum.customer_id=ro.customer_id left join ( select ls.total_cents, ls.vehicle_id from repair_orders ls where ls.partner_id=:partnerId and ls.location_id=:locationId and ls.closed in (select max(closed) as closed from repair_orders where partner_id=:partnerId and location_id=:locationId and customer_id = ls.customer_id and vehicle_id = ls.vehicle_id) group by vehicle_id ,customer_id) lastSpent on ro.vehicle_id = lastSpent.vehicle_id where ro.partner_id=:partnerId and ro.location_id=:locationId and c.last_seen>= '2014-01-01' and c.last_seen< '2014-02-01' group by cid order by ro.customer_id limit 0, 5000) vehq group by cid limit 0, 5000"
         }
     ],
+    "groups": [
+        {
+            "action": "Get Groups",
+            "url": "https://carglyplatform.appspot.com/partners/api/groups",
+            "method": "GET",
+            "response": [
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3Jtci8LEghQUGFydG5lchiAgICM1eXNCAwLEg1QUGFydG5lckdyb3VwGICAgICUmZ0KDA",
+                    "name": "Advanced Auto and Carquest Board Members",
+                    "members": [
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgMDK4o_YCAw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgMDKtrHXCgw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgMDK8qSCCgw"
+                    ]
+                },
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3Jtci8LEghQUGFydG5lchiAgICM1eXNCAwLEg1QUGFydG5lckdyb3VwGICAgICEtIoKDA",
+                    "name": "Coaching Clients",
+                    "members": [
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIChjMSFCgw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIDRtfL0Cgw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIDN8I3UCww",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgMDTz5mACQw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIDeq_jrCww",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIDFvpeCCQw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgMDm-OifCww",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIDNxZumCAw"
+                    ]
+                },
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3Jtci8LEghQUGFydG5lchiAgICM1eXNCAwLEg1QUGFydG5lckdyb3VwGICAgID4-4IKDA",
+                    "name": "GSM 1",
+                    "members": [
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgICj7q78CQw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIDjzuqBCgw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIDjgsDyCww",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID7ueWRCAw"
+                    ]
+                },
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3Jtci8LEghQUGFydG5lchiAgICM1eXNCAwLEg1QUGFydG5lckdyb3VwGICAgICUzowKDA",
+                    "name": "GSM 2",
+                    "members": [
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgMDU36jJCAw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgMDU-5qDCQw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgMDK-amQCQw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgMDUmfGVCww"
+                    ]
+                },
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3Jtci8LEghQUGFydG5lchiAgICM1eXNCAwLEg1QUGFydG5lckdyb3VwGICAgIDAnIIKDA",
+                    "name": "Group 1",
+                    "members": [
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID2id2tCAw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIC2z8a5Cgw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID2x_fkCgw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgICu2MSCCgw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIC28qTsCQw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgICu0ZKFCgw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID2_vipCww",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID2uo-PCgw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID2pZqsCQw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID28cHhCQw",
+                        "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgICuwqmqCAw"
+                    ]
+                }
+            ],
+            "query": ""
+        },
+        {
+            "action": "Get Members",
+            "url": "https://carglyplatform.appspot.com/partners/api/groups/:id/members",
+            "method": "GET",
+            "response": [
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID28cHhCQw",
+                    "created": "2015-08-26T18:51:22.949Z",
+                    "contactId": "ahBzfmNhcmdseXBsYXRmb3Jtci4LEghQUGFydG5lchiAgID28cHhCQwLEgxQUGFydG5lclVzZXIYgICAgICAgAoM",
+                    "partner": "Aero Auto Repair",
+                    "address": "9756 Aero Drive",
+                    "city": "San Diego",
+                    "state": "CA",
+                    "zip": "92123",
+                    "website": "http://aeroautorepairsandiego.com",
+                    "phone": "8584679999",
+                    "timezone": "US/Pacific",
+                    "contactName": "Gary Anderberg",
+                    "contactEmail": "gary@myaeroauto.com",
+                    "contactPhone": "8584679999",
+                    "subscriptionStatus": "Active",
+                    "groups": [
+                        "ahBzfmNhcmdseXBsYXRmb3Jtci8LEghQUGFydG5lchiAgICM1eXNCAwLEg1QUGFydG5lckdyb3VwGICAgICYupAKDA",
+                        "ahBzfmNhcmdseXBsYXRmb3Jtci8LEghQUGFydG5lchiAgICM1eXNCAwLEg1QUGFydG5lckdyb3VwGICAgICYsJ8KDA",
+                        "ahBzfmNhcmdseXBsYXRmb3Jtci8LEghQUGFydG5lchiAgICM1eXNCAwLEg1QUGFydG5lckdyb3VwGICAgIDAnIIKDA",
+                        "ahBzfmNhcmdseXBsYXRmb3Jtci8LEghQUGFydG5lchiAgICM1eXNCAwLEg1QUGFydG5lckdyb3VwGICAgIDIgJoKDA"
+                    ]
+                },
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIC2z8a5Cgw",
+                    "created": "2015-08-26T21:09:11.200Z",
+                    "contactId": "ahBzfmNhcmdseXBsYXRmb3Jtci4LEghQUGFydG5lchiAgIC2z8a5CgwLEgxQUGFydG5lclVzZXIYgICAgICAgAoM",
+                    "partner": "C.A.R.S. of America",
+                    "address": "1727 Chestnut Ave",
+                    "city": "Glenview",
+                    "state": "IL",
+                    "zip": "60025",
+                    "website": "http://www.carsofamericainc.com/",
+                    "phone": "8477246724",
+                    "timezone": "US/Central",
+                    "contactName": "Bob Dupre",
+                    "contactEmail": "rgdupre@gmail.com",
+                    "contactPhone": "8477246724",
+                    "subscriptionStatus": "Active",
+                    "groups": [
+                        "ahBzfmNhcmdseXBsYXRmb3Jtci8LEghQUGFydG5lchiAgICM1eXNCAwLEg1QUGFydG5lckdyb3VwGICAgIDAnIIKDA"
+                    ]
+                }
+            ],
+            "query": ""
+        },
+        {
+            "action": "Update Group",
+            "url": "https://carglyplatform.appspot.com/partners/api/groups/:id",
+            "method": "PUT",
+            "reqData": {
+                "id": "ahBzfmNhcmdseXBsYXRmb3Jtci8LEghQUGFydG5lchiAgICM1eXNCAwLEg1QUGFydG5lckdyb3VwGICAgIDAnIIKDA",
+                "name": "Group 1",
+                "members": [
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID2id2tCAw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIC2z8a5Cgw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID2x_fkCgw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgICu2MSCCgw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIC28qTsCQw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgICu0ZKFCgw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID2_vipCww",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID2uo-PCgw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID2pZqsCQw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID28cHhCQw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgICuwqmqCAw"
+                ]
+            },
+            "response": {
+                "id": "ahBzfmNhcmdseXBsYXRmb3Jtci8LEghQUGFydG5lchiAgICM1eXNCAwLEg1QUGFydG5lckdyb3VwGICAgIDAnIIKDA",
+                "name": "Group 1",
+                "members": [
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID2id2tCAw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIC2z8a5Cgw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID2x_fkCgw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgICu2MSCCgw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgICu0ZKFCgw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIC28qTsCQw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID2_vipCww",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID2uo-PCgw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID2pZqsCQw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgID28cHhCQw",
+                    "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgICuwqmqCAw"
+                ]
+            },
+            "query": ""
+        },
+        {
+            "action": "Create Group",
+            "url": "https://carglyplatform.appspot.com/partners/api/groups",
+            "method": "POST",
+            "reqData": {
+                "name": "Test Group"
+            },
+            "response": {
+                "id": "ahBzfmNhcmdseXBsYXRmb3Jtci8LEghQUGFydG5lchiAgICM1eXNCAwLEg1QUGFydG5lckdyb3VwGICAgIDUrJsKDA",
+                "name": "Test Group"
+            },
+            "query": ""
+        },
+        {
+            "action": "Delete Group",
+            "url": "https://carglyplatform.appspot.com/partners/api/groups/:id",
+            "method": "DELETE",
+            "response": {
+                "id": "ahBzfmNhcmdseXBsYXRmb3Jtci8LEghQUGFydG5lchiAgICM1eXNCAwLEg1QUGFydG5lckdyb3VwGICAgIDUrJsKDA",
+                "name": "Test Group",
+                "members": []
+            },
+            "query": ""
+        }
+    ],
     "location": [
         {
             "action": "Get User's locations Detail",
@@ -1899,6 +2159,58 @@
                 }
             ],
             "query": ""
+        },
+        {
+            "action": "Get Client's Payment Info",
+            "url": "https://carglyplatform.appspot.com/partners/api/agent/client-payments",
+            "method": "GET",
+            "response": [
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3JtchwLEg9QUGFydG5lclBheW1lbnQYgICg7OjvxAkM",
+                    "date": "2016-12-02T21:50:19.255Z",
+                    "client_name": "Mast Service Center",
+                    "client_id": "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIDY4quECgw",
+                    "invoice_num": "12-16003",
+                    "description": "Appointment pads",
+                    "amount_cents": 16066,
+                    "status": "PAID",
+                    "details": "{\n  \"id\" : \"roX7RvTHR1OzBe72bY-mhw\",\n  \"created\" : \"2016-12-02T21:50:19.852Z\",\n  \"modified\" : \"2016-12-02T21:50:20.912Z\",\n  \"account_id\" : \"YVoHtgClSBOJRgZ-PSf1Zw\",\n  \"status\" : \"AUTHORIZED\",\n  \"auto_capture\" : true,\n  \"amount\" : 16066,\n  \"currency\" : \"USD\",\n  \"reference\" : \"12-16003\",\n  \"data\" : {\n    \"custom_fields\" : {\n      \"Client\" : \"Mast Service Center\"\n    }\n  },\n  \"authorization_code\" : \"06206J\",\n  \"amount_refunded\" : 0,\n  \"type\" : \"CHARGE\",\n  \"method\" : {\n    \"type\" : \"card\",\n    \"number\" : \"************2577\",\n    \"fingerprint\" : \"RmemvDGRxK6F4GpwZ7lm\",\n    \"card_type\" : \"MASTERCARD\",\n    \"exp_month\" : 6,\n    \"exp_year\" : 2019\n  }\n}"
+                },
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3JtchwLEg9QUGFydG5lclBheW1lbnQYgICgrPHO2QgM",
+                    "date": "2016-12-02T15:24:52.857Z",
+                    "client_name": "Simard Automotive",
+                    "client_id": "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIDOp_a0CQw",
+                    "invoice_num": "12-16002",
+                    "description": "Appointment Pad",
+                    "amount_cents": 10083,
+                    "status": "PAID",
+                    "details": "{\n  \"id\" : \"_5dOam4RQEusWDCnTMe_3Q\",\n  \"created\" : \"2016-12-02T15:24:58.787Z\",\n  \"modified\" : \"2016-12-02T15:24:59.653Z\",\n  \"account_id\" : \"YVoHtgClSBOJRgZ-PSf1Zw\",\n  \"status\" : \"AUTHORIZED\",\n  \"auto_capture\" : true,\n  \"amount\" : 10083,\n  \"currency\" : \"USD\",\n  \"reference\" : \"12-16002\",\n  \"data\" : {\n    \"custom_fields\" : {\n      \"Client\" : \"Simard Automotive\"\n    }\n  },\n  \"authorization_code\" : \"03240G\",\n  \"amount_refunded\" : 0,\n  \"type\" : \"CHARGE\",\n  \"method\" : {\n    \"type\" : \"card\",\n    \"number\" : \"************7157\",\n    \"fingerprint\" : \"9bNmsn4F5KXv6_bgekWk\",\n    \"card_type\" : \"VISA\",\n    \"exp_month\" : 10,\n    \"exp_year\" : 2020\n  },\n  \"cvv_result\" : \"NOT_PROCESSED\"\n}"
+                },
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3JtchwLEg9QUGFydG5lclBheW1lbnQYgICgrPGDlQkM",
+                    "date": "2016-12-02T15:10:10.071Z",
+                    "client_name": "Fine Tune Repair Service",
+                    "client_id": "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIDOuuGjCww",
+                    "invoice_num": "1216001",
+                    "description": "Advanced Selling Skills",
+                    "amount_cents": 133166,
+                    "status": "PAID",
+                    "details": "{\n  \"id\" : \"9y5h8DKIQvy6txw3deNdnA\",\n  \"created\" : \"2016-12-02T15:10:13.650Z\",\n  \"modified\" : \"2016-12-02T15:10:14.520Z\",\n  \"account_id\" : \"YVoHtgClSBOJRgZ-PSf1Zw\",\n  \"status\" : \"AUTHORIZED\",\n  \"auto_capture\" : true,\n  \"amount\" : 133166,\n  \"currency\" : \"USD\",\n  \"reference\" : \"1216001\",\n  \"data\" : {\n    \"custom_fields\" : {\n      \"Client\" : \"Fine Tune Repair Service\"\n    }\n  },\n  \"authorization_code\" : \"271998\",\n  \"amount_refunded\" : 0,\n  \"type\" : \"CHARGE\",\n  \"method\" : {\n    \"type\" : \"card\",\n    \"number\" : \"***********3005\",\n    \"fingerprint\" : \"W2bCk_KRKa0uJuYiINoD\",\n    \"card_type\" : \"AMERICAN_EXPRESS\",\n    \"exp_month\" : 5,\n    \"exp_year\" : 2020\n  },\n  \"cvv_result\" : \"NOT_PROCESSED\"\n}"
+                },
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3JtchwLEg9QUGFydG5lclBheW1lbnQYgICgzJKqjQoM",
+                    "date": "2016-12-01T15:50:16.812Z",
+                    "client_name": "ASG Automotive",
+                    "client_id": "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgIDO2ZWUCAw",
+                    "invoice_num": "11-16195",
+                    "description": "Advanced Selling Skills",
+                    "amount_cents": 329500,
+                    "status": "PAID",
+                    "details": "{\n  \"id\" : \"6wd4z3DmQfqNgs6ciwor8w\",\n  \"created\" : \"2016-12-01T15:50:20.502Z\",\n  \"modified\" : \"2016-12-01T15:50:21.389Z\",\n  \"account_id\" : \"YVoHtgClSBOJRgZ-PSf1Zw\",\n  \"status\" : \"AUTHORIZED\",\n  \"auto_capture\" : true,\n  \"amount\" : 329500,\n  \"currency\" : \"USD\",\n  \"reference\" : \"11-16195\",\n  \"data\" : {\n    \"custom_fields\" : {\n      \"Client\" : \"ASG Automotive\"\n    }\n  },\n  \"authorization_code\" : \"006328\",\n  \"amount_refunded\" : 0,\n  \"type\" : \"CHARGE\",\n  \"method\" : {\n    \"type\" : \"card\",\n    \"number\" : \"************0617\",\n    \"fingerprint\" : \"Bs_giwYGuIUnM10WxTQf\",\n    \"card_type\" : \"VISA\",\n    \"exp_month\" : 12,\n    \"exp_year\" : 2018\n  },\n  \"cvv_result\" : \"NOT_PROCESSED\"\n}"
+                }
+            ],
+            "query": ""
         }
     ],
     "users": [
@@ -1967,6 +2279,186 @@
             "method": "DELETE",
             "response": null,
             "query": ""
+        }
+    ],
+    "shop-location": [
+        {
+            "action": "Get Client Shop Locations",
+            "url": "https://carglyplatform.appspot.com/partners/api/agent/client-locations",
+            "method": "GET",
+            "response": [
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3JtcjILEghQUGFydG5lchiAgICj7q78CQwLEhBQUGFydG5lckxvY2F0aW9uGICAgICA5JEKDA",
+                    "contactId": "ahBzfmNhcmdseXBsYXRmb3Jtci4LEghQUGFydG5lchiAgICj7q78CQwLEgxQUGFydG5lclVzZXIYgICAgICAgAoM",
+                    "partnerId": "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgICj7q78CQw",
+                    "partner": "12th Street Auto Care Center",
+                    "name": "12th Street Auto Care Center",
+                    "address": "2812 W. 12th Street",
+                    "city": "Sioux Falls",
+                    "state": "SD",
+                    "zip": "57104",
+                    "timezone": "US/Central",
+                    "phone": null,
+                    "currentVersion": "1.1.0",
+                    "nextUpdateUrl": null,
+                    "nextUpdateSignature": null,
+                    "lastConfig": "{\"environment\":{\"java.vm.version\":\"24.51-b03\",\"awt.toolkit\":\"sun.awt.windows.WToolkit\",\"java.vendor.url\":\"http://java.oracle.com/\",\"sun.jnu.encoding\":\"Cp1252\",\"java.vm.info\":\"mixed mode\",\"sun.boot.library.path\":\"C:\\\\Program Files (x86)\\\\RSMarketingTools\\\\jre\\\\bin\",\"java.home\":\"C:\\\\Program Files (x86)\\\\RSMarketingTools\\\\jre\",\"java.vm.name\":\"Java HotSpot(TM) Client VM\",\"user.dir\":\"C:\\\\Program Files (x86)\\\\RSMarketingTools\",\"sun.cpu.isalist\":\"pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86\",\"java.awt.graphicsenv\":\"sun.awt.Win32GraphicsEnvironment\",\"sun.os.patch.level\":\"Service Pack 1\",\"java.endorsed.dirs\":\"C:\\\\Program Files (x86)\\\\RSMarketingTools\\\\jre\\\\lib\\\\endorsed\",\"sun.management.compiler\":\"HotSpot Client Compiler\",\"user.home\":\"C:\\\\Windows\\\\System32\\\\config\\\\systemprofile\",\"java.runtime.name\":\"Java(TM) SE Runtime Environment\",\"java.awt.printerjob\":\"sun.awt.windows.WPrinterJob\",\"java.version\":\"1.7.0_51\",\"file.encoding.pkg\":\"sun.io\",\"file.separator\":\"\\\\\",\"java.vendor.url.bug\":\"http://bugreport.sun.com/bugreport/\",\"java.specification.vendor\":\"Oracle Corporation\",\"file.encoding\":\"Cp1252\",\"line.separator\":\"\\r\\n\",\"java.vm.specification.version\":\"1.7\",\"java.vm.specification.vendor\":\"Oracle Corporation\",\"user.timezone\":\"America/Chicago\",\"os.name\":\"Windows 7\",\"java.vm.vendor\":\"Oracle Corporation\",\"path.separator\":\";\",\"java.ext.dirs\":\"C:\\\\Program Files (x86)\\\\RSMarketingTools\\\\jre\\\\lib\\\\ext;C:\\\\Windows\\\\Sun\\\\Java\\\\lib\\\\ext\",\"sun.arch.data.model\":\"32\",\"os.version\":\"6.1\",\"java.specification.name\":\"Java Platform API Specification\",\"sun.io.unicode.encoding\":\"UnicodeLittle\",\"user.variant\":\"\",\"user.language\":\"en\",\"user.name\":\"12THSTREETAUTO$\",\"os.arch\":\"x86\",\"user.script\":\"\",\"java.runtime.version\":\"1.7.0_51-b13\",\"java.class.version\":\"51.0\",\"user.country\":\"US\",\"sun.desktop\":\"windows\",\"java.vendor\":\"Oracle Corporation\",\"jboss.i18n.generate-proxies\":\"true\",\"java.vm.specification.name\":\"Java Virtual Machine Specification\",\"sun.cpu.endian\":\"little\",\"java.specification.version\":\"1.7\"},\"settings\":{\"shopmgmtsystem.db.location\":\"c:\\\\rowriterdata\\\\rowriter.mdb\",\"carglyconnect.location.phone\":\"null\",\"carglyconnect.payments.accountid\":\"\",\"carglyconnect.location.name\":\"12th Street Auto Care Center\",\"shopmgmtsystem.db.pinrequired\":\"\",\"shopmgmtsystem.subscriptions\":\"rlo_standard,rlo_daily_email\",\"carglyconnect.location.address\":\"2812 W. 12th Street\",\"carglyconnect.logaggregation.threshold\":\"WARN\",\"shopmgmtsystem.type\":\"rowriter\",\"shopmgmtsystem.db.username\":\"\",\"carglyconnect.locationid\":\"ahBzfmNhcmdseXBsYXRmb3JtcjILEghQUGFydG5lchiAgICj7q78CQwLEhBQUGFydG5lckxvY2F0aW9uGICAgICA5JEKDA\",\"carglyconnect.syncall\":\"yes\",\"carglyconnect.lastsyncro\":\"0047054\",\"carglyconnect.url\":\"https://carglyplatform.appspot.com\",\"shopmgmtsystem.db.password\":\"\",\"server.ipaddress\":\"192.168.1.107\",\"shopmgmtsystem.decimaltime\":\"\",\"carglyconnect.lastsync\":\"2016-12-06T17:32:00.000-06:00\",\"carglyconnect.location.state\":\"SD\",\"carglyconnect.location.city\":\"Sioux Falls\",\"server.port\":\"8082\",\"carglyconnect.location.zip\":\"57104\",\"carglyconnect.location.timezone\":\"US/Central\",\"carglyconnect.payments.publickey\":\"\",\"carglyconnect.syncenabled\":\"yes\",\"shopmgmtsystem.logo\":\"\"},\"sms_info\":{\"name\":\"ROWriter\",\"db_health\":\"OK\",\"version\":\"1.31\"},\"version\":\"1.1.0\"}",
+                    "lastConfigUpdated": "2016-12-07T08:21:17.867Z",
+                    "subscriptions": "rlo_standard,rlo_daily_email",
+                    "groups": [
+                        "ahBzfmNhcmdseXBsYXRmb3Jtci8LEghQUGFydG5lchiAgICM1eXNCAwLEg1QUGFydG5lckdyb3VwGICAgICklJwKDA",
+                        "ahBzfmNhcmdseXBsYXRmb3Jtci8LEghQUGFydG5lchiAgICM1eXNCAwLEg1QUGFydG5lckdyb3VwGICAgID4-4IKDA"
+                    ]
+                }
+            ],
+            "query": ""
+        }
+    ],
+    "campaigns": [
+        {
+            "action": "Get List Of Campaigns",
+            "method": "GET",
+            "url": "https://carglyplatform.appspot.com/partners/api/crm/:locationId/customer-lists",
+            "response": [
+                {
+                    "id": "23",
+                    "name": "Lost Customers",
+                    "customers_only": true,
+                    "filters": [
+                        {
+                            "name": "c.last_seen",
+                            "value": "THIRTEEN_MONTHS_AGO_FROM_THIS_MONTH",
+                            "operator": "GREATER_THAN_OR_EQUALS"
+                        },
+                        {
+                            "name": "c.last_seen",
+                            "value": "TWELVE_MONTHS_AGO_FROM_THIS_MONTH",
+                            "operator": "LESS_THAN"
+                        }
+                    ],
+                    "active": false,
+                    "frequency": "MONTHLY",
+                    "day_of_month": 10,
+                    "next_due_date": "2016-11-10T00:00:00.000Z",
+                    "template_name": "Haven't Seen You",
+                    "template_key": "ahBzfmNhcmdseXBsYXRmb3JtcjcLEghQUGFydG5lchiAgICQmP2fCwwLEhVQUGFydG5lckVtYWlsVGVtcGxhdGUYgICAgMTNhQoM",
+                    "delivery_enabled": false
+                },
+                {
+                    "id": "37",
+                    "name": "Lost Customers For Month",
+                    "customers_only": true,
+                    "filters": [
+                        {
+                            "name": "c.last_seen",
+                            "value": "2015-09-01",
+                            "operator": "GREATER_THAN_OR_EQUALS"
+                        },
+                        {
+                            "name": "c.last_seen",
+                            "value": "2015-10-01",
+                            "operator": "LESS_THAN"
+                        }
+                    ],
+                    "active": false,
+                    "frequency": "NONE",
+                    "day_of_month": 0,
+                    "next_due_date": "2016-11-17T00:00:00.000Z",
+                    "delivery_enabled": false
+                },
+                {
+                    "id": "24",
+                    "name": "TestList",
+                    "customers_only": true,
+                    "filters": [
+                        {
+                            "name": "c.ro_count",
+                            "value": "18",
+                            "operator": "GREATER_THAN"
+                        },
+                        {
+                            "name": "v.make",
+                            "value": "SUBA",
+                            "operator": "EQUALS"
+                        }
+                    ],
+                    "active": false,
+                    "frequency": "YEARLY",
+                    "month": "FEB",
+                    "day_of_month": 6,
+                    "next_due_date": "2017-02-06T00:00:00.000Z",
+                    "template_name": "Birthday Email",
+                    "template_key": "ahBzfmNhcmdseXBsYXRmb3JtcjcLEghQUGFydG5lchiAgICQmP2fCwwLEhVQUGFydG5lckVtYWlsVGVtcGxhdGUYgICAgKTukgoM",
+                    "delivery_enabled": false
+                }
+            ]
+        },
+        {
+            "action": "Get Customer List Preview",
+            "url": "https://carglyplatform.appspot.com/partners/api/crm/:partnerId/customer-list-preview",
+            "method": "POST",
+            "reqData": {
+                "id": "23",
+                "name": "Lost Customers",
+                "customers_only": true,
+                "filters": [
+                    {
+                        "name": "c.last_seen",
+                        "operator": "GREATER_THAN_OR_EQUALS",
+                        "value": "THIRTEEN_MONTHS_AGO_FROM_THIS_MONTH"
+                    },
+                    {
+                        "name": "c.last_seen",
+                        "operator": "LESS_THAN",
+                        "value": "TWELVE_MONTHS_AGO_FROM_THIS_MONTH"
+                    }
+                ],
+                "active": false,
+                "frequency": "MONTHLY",
+                "day_of_month": 10,
+                "next_due_date": "2016-11-10T00:00:00.000Z",
+                "template_name": "Haven't Seen You",
+                "template_key": "ahBzfmNhcmdseXBsYXRmb3JtcjcLEghQUGFydG5lchiAgICQmP2fCwwLEhVQUGFydG5lckVtYWlsVGVtcGxhdGUYgICAgMTNhQoM",
+                "delivery_enabled": false,
+                "day_of_week": null,
+                "month": null
+            },
+            "response": [
+                {
+                    "id": 1805,
+                    "type": "INDIVIDUAL",
+                    "reference": "00009002740",
+                    "first_name": "PATIA",
+                    "last_name": "HARGREAVES",
+                    "company": "HARGREAVES, PATIA",
+                    "address1": "6495 S. SAUNDERS LAKE DR",
+                    "city": "MOUND",
+                    "state": "MN",
+                    "postal_code": "55364-    ",
+                    "phone_numbers": [
+                        "9524723469",
+                        "9528074936"
+                    ],
+                    "email_addresses": [
+                        "patiadvm@mchsi.com"
+                    ],
+                    "first_seen": "2011-10-12T15:08:54.000Z",
+                    "last_seen": "2015-11-10T06:00:00.000Z",
+                    "sms_crm_active": false,
+                    "email_unsubscribed": false,
+                    "vehicles": [
+                        {
+                            "id": "6333090372780032-5707702298738688-9004238",
+                            "make": "CHET",
+                            "model": "TAHOE",
+                            "year": "2001",
+                            "vin": "1GNEK13T41J298311",
+                            "first_odo": 0.0,
+                            "last_odo": 181924.0
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
