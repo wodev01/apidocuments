@@ -141,7 +141,7 @@
             ]
         },
         {
-            "action": "Get Clients Locations Details",
+            "action": "Get Client User's Locations Details",
             "url": "https://carglyplatform.appspot.com/partners/api/:partnerId/locations",
             "method": "GET",
             "response": [
@@ -166,7 +166,7 @@
             ]
         },
         {
-            "action": "Get Client Payment Info",
+            "action": "Get Client User's Payment Info",
             "url": "https://carglyplatform.appspot.com/partners/api/:partnerId/payment-info",
             "method": "GET",
             "response": {
@@ -177,7 +177,7 @@
             }
         },
         {
-            "action": "Get Client Subscription Info",
+            "action": "Get Client User's Subscription Info",
             "url": "https://carglyplatform.appspot.com/partners/api/:partnerId/subscription-info",
             "method": "GET",
             "response": {
@@ -230,6 +230,59 @@
                 "zip": "12345"
             },
             "response": null
+        },
+        {
+            "action": "Get Client User's Billing History",
+            "url": "https://carglyplatform.appspot.com/partners/api/partnerId/payments?",
+            "method": "GET",
+            "response": [
+                {
+                    "id": "ahBzfmNhcmdseXBsYXRmb3JtchwLEg9QUGFydG5lclBheW1lbnQYgICA4v-8iQoM",
+                    "date": "2015-05-22T21:10:01.338Z",
+                    "reference": "S 05-2015 M6333090372780032",
+                    "description": "Monthly Subscription",
+                    "amount": 0,
+                    "status": "PAID",
+                    "details": "{\n  \"id\" : \"_6IYvzXuSDCeqOwEe_JfJA\",\n  \"created\" : \"2015-05-22T21:10:06.800Z\",\n  \"modified\" : \"2015-05-22T21:10:06.903Z\",\n  \"account_id\" : \"ydq_phIvRf20hZoBptnc9A\",\n  \"status\" : \"AUTHORIZED\",\n  \"auto_capture\" : true,\n  \"amount\" : 160000,\n  \"currency\" : \"USD\",\n  \"reference\" : \"S 05-2015 M6333090372780032\",\n  \"authorization_code\" : \"QUHYYR\",\n  \"method\" : {\n    \"number\" : \"************4242\",\n    \"fingerprint\" : \"GunPelYVthifNV63LEw1\",\n    \"card_type\" : \"VISA\",\n    \"exp_month\" : 11,\n    \"exp_year\" : 2018,\n    \"type\" : \"card\"\n  },\n  \"amount_refunded\" : 0,\n  \"avs_result\" : \"ADDRESS_AND_POSTAL_CODE\",\n  \"type\" : \"CHARGE\"\n}"
+                }
+            ]
+        },
+        {
+            "action": "Clients Act-On",
+            "url": "https://carglyplatform.appspot.com/partners/api/crm/acton/partnerId/info?",
+            "method": "GET",
+            "response": {
+                "enabled": true,
+                "list_name": null
+            }
+        },
+        {
+            "action": "Clients Updates",
+            "url": "https://carglyplatform.appspot.com/partners/api/partnerId/updates?page_num=1&page_size=5",
+            "method":"GET",
+            "response": {
+                "updates" : [ {
+                    "id" : "ahBzfmNhcmdseXBsYXRmb3JtciMLEhZQUGFydG5lclNvZnR3YXJlVXBkYXRlGICAwNHP3_0IDA",
+                    "created" : "2016-08-17T23:06:21.842Z",
+                    "update_definition_id" : "ahBzfmNhcmdseXBsYXRmb3JtckILEghQUGFydG5lchiAgICQ7fSQCQwLEiBQUGFydG5lclNvZnR3YXJlVXBkYXRlRGVmaW5pdGlvbhiAgICAuOWACgw",
+                    "partner_id" : "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgICQmP2fCww",
+                    "update_type" : "shopsync",
+                    "update_url" : "https://dl.dropboxusercontent.com/s/keqjsfrqz37elx6/rsmt_1.1.1.zip",
+                    "signature" : "bdc617bf5306ebfa76ea8acdecef67cb04da0aa165c997e0f4be4cdeec8384e7",
+                    "version" : "1.1.1",
+                    "type" : "ARCHIVE"
+                }, {
+                    "id" : "ahBzfmNhcmdseXBsYXRmb3JtciMLEhZQUGFydG5lclNvZnR3YXJlVXBkYXRlGICAgP-alYYJDA",
+                    "created" : "2016-04-07T04:54:33.524Z",
+                    "update_definition_id" : "ahBzfmNhcmdseXBsYXRmb3JtckILEghQUGFydG5lchiAgICM1eXNCAwLEiBQUGFydG5lclNvZnR3YXJlVXBkYXRlRGVmaW5pdGlvbhiAgICAxOiBCgw",
+                    "partner_id" : "ahBzfmNhcmdseXBsYXRmb3JtchULEghQUGFydG5lchiAgICQmP2fCww",
+                    "update_type" : "shopsync",
+                    "update_url" : "https://dl.dropboxusercontent.com/s/1jc5pdwu7m2q1mk/rsmt_1.0.18f.zip",
+                    "signature" : "471d056bed4fdcc58d492b51153ac24d8f39f214691cf9e4e6eaa33fb4bb47b5",
+                    "version" : "1.0.18f",
+                    "type" : "ARCHIVE"
+                } ]
+            }
         }
     ],
     "dashboard": [
@@ -2453,8 +2506,8 @@
                             "model": "TAHOE",
                             "year": "2001",
                             "vin": "1GNEK13T41J298311",
-                            "first_odo": 0.0,
-                            "last_odo": 181924.0
+                            "first_odo": 0,
+                            "last_odo": 181924
                         }
                     ]
                 }

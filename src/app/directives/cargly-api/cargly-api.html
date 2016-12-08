@@ -22,12 +22,18 @@
             </div>
 
             <div ng-if="api.reqData" class="margin-top-10 margin-bottom-10" layout="column">
-                <span class="margin-bottom-5">Request Body Data</span>
+                <div class="margin-bottom-5">
+                    <span class="example-label">Example </span>
+                    <span class="padding-left-5">Request Body Data</span>
+                </div>
                 <pre class="ex-json">{{api.reqData | json}}</pre>
             </div>
 
             <div ng-if="api.response" class="margin-top-10 margin-bottom-10" layout="column">
-                <span class="margin-bottom-5">Example Response Data</span>
+                <div class="margin-bottom-5">
+                    <span class="example-label">Example </span>
+                    <span class="padding-left-5">Response data</span>
+                </div>
                 <pre class="ex-json">{{api.response | json}}</pre>
             </div>
 
