@@ -2145,7 +2145,7 @@
             "query": ""
         }
     ],
-    "payment": [
+    "payments": [
         {
             "action": "Get User's Payment Info",
             "url": "https://carglyplatform.appspot.com/partners/api/:partnerId/payment-info",
@@ -2281,7 +2281,7 @@
             "query": ""
         }
     ],
-    "shop-location": [
+    "shop-locations": [
         {
             "action": "Get Client Shop Locations",
             "url": "https://carglyplatform.appspot.com/partners/api/agent/client-locations",
