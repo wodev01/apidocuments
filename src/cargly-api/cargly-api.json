@@ -28,7 +28,7 @@
         "location": {
             "name": "location",
             "icon": "fa fa-lg fa-map-marker",
-            "urlPath": "/locations",
+            "urlPath": "/location",
             "sref": "main.locations"
         },
         "payment": {
@@ -2593,7 +2593,7 @@
         },
         {
             "action": "Get Customer List Preview",
-            "url": "https://carglyplatform.appspot.com/partners/api/crm/:partnerId/customer-list-preview",
+            "url": "https://carglyplatform.appspot.com/partners/api/crm/:locationId/customer-list-preview",
             "method": "POST",
             "reqData": {
                 "id": "23",
