@@ -10,6 +10,7 @@
             'ngAria',
             'ui.router',
             'ngMaterial',
-            'toastr']);
+            'toastr',
+            'evgenyneu.markdown-preview']);
 
 })();

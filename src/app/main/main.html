@@ -23,6 +23,11 @@
             <md-icon md-font-set="{{tab.icon}}"></md-icon>
             &nbsp;{{tab.name}}
         </md-button>
+        <md-button ng-class="main.fnIsActive('/calculation')"
+                   ng-click="$root.fnCloseSideNavs();" ui-sref="main.calculation">
+            <md-icon md-font-set="fa fa-lg fa-calculator"></md-icon>
+            &nbsp;Calculation
+        </md-button>
     </md-sidenav>
     <!-- Left Side Navigation : END-->
 

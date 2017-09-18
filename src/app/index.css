@@ -16,7 +16,7 @@
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
-    font-size: 24px;  /* Preferred icon size */
+    font-size: 24px; /* Preferred icon size */
     display: inline-block;
     width: 1em;
     height: 1em;
@@ -50,6 +50,7 @@ html, body {
 .margin-0 {
     margin: 0px !important;
 }
+
 .margin-top-0 {
     margin-top: 0 !important;
 }
@@ -1040,8 +1041,8 @@ html, body {
     -ms-overflow-style: none;
 }
 
-:focus{
-    outline:none;
+:focus {
+    outline: none;
 }
 
 .border {
@@ -1304,28 +1305,28 @@ md-list md-list-item > div {
 
 /******************* Main CSS *********************/
 
-md-toolbar.page-caption{
-    background-color:#5566c3;
+md-toolbar.page-caption {
+    background-color: #5566c3;
     height: 50px;
     min-height: 50px;
 }
 
-md-dialog{
-    width:50%;
+md-dialog {
+    width: 50%;
 }
 
 md-input-container {
     margin-bottom: 0;
 }
 
-.ex-json{
+.ex-json {
     border: 1px solid #ddd;
     background-color: #ffffdd;
     max-height: 300px;
     overflow: auto;
 }
 
-.example-label{
+.example-label {
     color: #AAA;
     border-right: 1px solid #ddd;
     padding-right: 3px;
@@ -1333,14 +1334,14 @@ md-input-container {
 
 /* START : THEME */
 /* GET : BLUE THEME */
-.get-blue-theme{
+.get-blue-theme {
     width: 100%;
     background-color: #e7f0f7;
     outline: none;
     font-size: 15px;
 }
 
-.get-blue-theme .header .method{
+.get-blue-theme .header .method {
     text-transform: uppercase;
     text-decoration: none;
     background-color: #0f6ab4;
@@ -1352,13 +1353,13 @@ md-input-container {
     padding: 7px 0 4px;
 }
 
-.get-blue-theme .body{
+.get-blue-theme .body {
     padding: 0 18px;
     border: 1px solid #c3d9ec;
     margin-left: 1px;
 }
 
-.get-blue-theme .body .urlStyle{
+.get-blue-theme .body .urlStyle {
     color: #0f6ab4;
 }
 
@@ -1368,14 +1369,14 @@ md-input-container {
 }
 
 /* POST : GREEN THEME */
-.post-green-theme{
+.post-green-theme {
     width: 100%;
     background-color: #E7F6EC;
     outline: none;
     font-size: 15px;
 }
 
-.post-green-theme .header .method{
+.post-green-theme .header .method {
     text-transform: uppercase;
     text-decoration: none;
     background-color: #10a54a;
@@ -1387,14 +1388,14 @@ md-input-container {
     padding: 7px 0 4px;
 }
 
-.post-green-theme .body{
+.post-green-theme .body {
     padding: 0 18px;
     border: 1px solid #c3e8d1;
     margin-left: 1px;
 
 }
 
-.post-green-theme .body .urlStyle{
+.post-green-theme .body .urlStyle {
     color: #10a54a;
 }
 
@@ -1404,14 +1405,14 @@ md-input-container {
 }
 
 /* PUT : ORANGE THEME */
-.put-orange-theme{
+.put-orange-theme {
     width: 100%;
     background-color: #f9f2e9;
     outline: none;
     font-size: 15px;
 }
 
-.put-orange-theme .header .method{
+.put-orange-theme .header .method {
     text-transform: uppercase;
     text-decoration: none;
     background-color: #c5862b;
@@ -1423,13 +1424,13 @@ md-input-container {
     padding: 7px 0 4px;
 }
 
-.put-orange-theme .body{
+.put-orange-theme .body {
     padding: 0 18px;
     border: 1px solid #f0e0ca;
     margin-left: 1px;
 }
 
-.put-orange-theme .body .urlStyle{
+.put-orange-theme .body .urlStyle {
     color: #c5862b;
 }
 
@@ -1439,14 +1440,14 @@ md-input-container {
 }
 
 /* DELETE : RED THEME */
-.delete-red-theme{
+.delete-red-theme {
     width: 100%;
     background-color: #f5e8e8;
     outline: none;
     font-size: 15px;
 }
 
-.delete-red-theme .header .method{
+.delete-red-theme .header .method {
     text-transform: uppercase;
     text-decoration: none;
     background-color: #a41e22;
@@ -1458,13 +1459,13 @@ md-input-container {
     padding: 7px 0 4px;
 }
 
-.delete-red-theme .body{
+.delete-red-theme .body {
     padding: 0 18px;
     border: 1px solid #e8c6c7;
     margin-left: 1px;
 }
 
-.delete-red-theme .body .urlStyle{
+.delete-red-theme .body .urlStyle {
     color: #a41e22;
 }
 
@@ -1472,6 +1473,17 @@ md-input-container {
     background-color: #e8c6c7;
     cursor: pointer;
 }
+/* START : README MD CSS */
+.iiMdPreview textarea {
+    display: none;
+}
+.iiMdPreview pre{
+    background: #f6f8fa;
+    overflow-x: auto;
+    border: 1px solid grey;
+    padding: 15px;
+}
+/* END : README MD CSS */
 
 /* END : THEME */
 
@@ -1488,7 +1500,7 @@ md-input-container {
         min-width: 100%;
     }
 
-    img.rlo-logo{
+    img.rlo-logo {
         height: 50px;
     }
 
@@ -1510,18 +1522,18 @@ md-input-container {
 }
 
 @media (max-width: 659px) {
-    img.rlo-logo{
+    img.rlo-logo {
         height: 60px;
         width: 100px;
     }
 }
-
 
 @media screen and (max-width: 599px) {
     /* All Modal Dialog */
     md-toolbar .md-toolbar-tools .text-small-599 {
         font-size: 14px;
     }
+
     /* Dashboard 2nd row */
     md-toolbar .md-toolbar-tools.toolbar-content-height {
         height: 100px;

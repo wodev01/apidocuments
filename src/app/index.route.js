@@ -44,7 +44,14 @@
         };
 
         $stateProvider
-            .states(statesArray, {});
+            .states(statesArray, {})
+            .state('main.calculation', {
+                url: 'calculation',
+                templateUrl: 'app/calculation/calculation.html',
+                controller: 'CalculationController',
+                controllerAs: 'calc',
+                data: {'api-name': 'Calculation'}
+            });
 
         $urlRouterProvider.otherwise('/dashboard');
     }
